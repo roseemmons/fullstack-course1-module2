@@ -57,11 +57,16 @@ class Solution
 
     # Loop through all LineAnalyzer objects and find only the objects that match the max word count:
     @highest_count_words_across_lines = @analyzers.select{ |o| o.highest_wf_count == @highest_count_across_lines }
+
+  # p  @highest_count_across_lines
+  # p  @highest_count_words_across_lines
  end
 
+ # ["word1"] (appears in line #)
+ # ["word2", "word3"] (appears in line #)
   def print_highest_word_frequency_across_lines
-    # The following words have the highest word frequency per line:
-    # ["word1"] (appears in line #)
-    # ["word2", "word3"] (appears in line #)
+    @highest_count_words_across_lines.each do |o|
+      puts "#{o.highest_wf_words} appears in line #{o.line_number}"
+    end
   end
 end
