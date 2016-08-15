@@ -23,11 +23,11 @@ class LineAnalyzer
 
     result_hash = result.to_h
     result_hash.each do |k, v|
-      # If the currently-evaluated value equals the hashes max value, push the key to @highest_wf_words:
+      # If the currently-evaluated value equals the hashe's max value, push the key to @highest_wf_words:
       @highest_wf_words.push(k) if v == result_hash.values.max # Visual note: ["really", "you"]
 
       # Check the hash for its highest value, and assign it to @highest_wf_count:
-      @highest_wf_count = result_hash.values.max # = 3
+      @highest_wf_count = result_hash.values.max # Visual note: 3
     end
   end
 end
@@ -57,13 +57,8 @@ class Solution
 
     # Loop through all LineAnalyzer objects and find only the objects that match the max word count:
     @highest_count_words_across_lines = @analyzers.select{ |o| o.highest_wf_count == @highest_count_across_lines }
-
-  # p  @highest_count_across_lines
-  # p  @highest_count_words_across_lines
  end
 
- # ["word1"] (appears in line #)
- # ["word2", "word3"] (appears in line #)
   def print_highest_word_frequency_across_lines
     @highest_count_words_across_lines.each do |o|
       puts "#{o.highest_wf_words} appears in line #{o.line_number}"
